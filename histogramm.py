@@ -4,24 +4,31 @@ from collections import Counter
 import matplotlib.pyplot as mp
 from pprint import pprint
 
-cnt = Counter()
 
-lst = []
-with os.scandir('./datasets/train-labels-task2-technique-classification') as files:
-    for file in files:
-        lst.append('./datasets/train-labels-task2-technique-classification/' + file.name)
+class Histogrammer:
 
-for file in lst:
-    with open(file) as f:
-        for line in f.readlines():
-            array = line.split('\t')
-            cnt[array[1]] += 1
+    def __init__(self):
+        cnt = Counter()
 
-pprint(cnt)
+    def count_occurences(self):
 
-labels, values = zip(*cnt.items())
+        lst = []
+        with os.scandir('./datasets/train-labels-task2-technique-classification') as files:
+            for file in files:
+                lst.append('./datasets/train-labels-task2-technique-classification/' + file.name)
 
-mp.barh(labels, values)
-mp.xticks(rotation=90)
-mp.tight_layout()
-mp.show()
+        for file in lst:
+            with open(file) as f:
+                for line in f.readlines():
+                    array = line.split('\t')
+                    self.cnt[array[1]] += 1
+
+        pprint(self.cnt)
+
+    def plot_graph(self):
+        labels, values = zip(*self.cnt.items())
+
+        mp.barh(labels, values)
+        mp.xticks(rotation=90)
+        mp.tight_layout()
+        mp.show()
