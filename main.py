@@ -9,13 +9,11 @@ def main():
 
     tt = TextTagger()
 
-    # pprint(tt.tuple_articles_and_indices())
-
-    # pprint(tt.tuple_words_indices())
-
     sp = SpanPrint()
 
     sp.print_spans()
+
+    # spans = sp.get_article_spans()
 
 
 if __name__ == '__main__':

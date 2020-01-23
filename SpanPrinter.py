@@ -26,7 +26,6 @@ def get_article_spans(file_number, lst_train_labels):
                         span_tuple = (spans[1], spans[2])
                         res.append(span_tuple)
                     return res
-
         except:
             pprint(f"No labels where found for the article: {file_number}")
 
