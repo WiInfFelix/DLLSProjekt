@@ -8,7 +8,7 @@ from pprint import pprint
 class Histogrammer:
 
     def __init__(self):
-        cnt = Counter()
+        self.cnt = Counter()
 
     def count_occurences(self):
 
