@@ -78,12 +78,19 @@ def get_tagged_text():
                 text_tuples = []
                 for token in text.words:
                     text_tuples.append((token.text, token.idx))
-                for text_spans in span_input.spans:
-                    for tup in text_tuples:
+                print(text_tuples[:2])
+                for tup in text_tuples:
+                    is_prop = False
+                    for text_spans in span_input.spans:
                         if int(text_spans[0]) <= int(tup[1]) <= int(text_spans[1]):
                             tagged_text.append((tup[0], 'PROP'))
-                        else:
-                            tagged_text.append((tup[0], 'o'))
+                            is_prop = True
+                            break
+                    if not is_prop:
+                        tagged_text.append((tup[0], 'o'))
+
+
+
         input_list.extend(tagged_text)
 
     print('Finished tagging')
