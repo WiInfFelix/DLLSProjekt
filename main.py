@@ -9,6 +9,7 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
+import csv
 
 TRAIN_ARTICLES = 'datasets/train-articles'
 TRAIN_LABELS = 'datasets/train-labels-task1-span-identification'
@@ -66,8 +67,8 @@ def get_tagged_text():
 
     print('Test Output of classes:')
 
-    print(articles_list[0].words[:10])
-    print(span_list[0].spans[:5])
+    # print(articles_list[0].words[:10])
+    # print(span_list[0].spans[:5])
 
     input_list = []
 
@@ -78,7 +79,7 @@ def get_tagged_text():
                 text_tuples = []
                 for token in text.words:
                     text_tuples.append((token.text, token.idx))
-                print(text_tuples[:2])
+                # print(text_tuples[:2])
                 for tup in text_tuples:
                     is_prop = False
                     for text_spans in span_input.spans:
@@ -89,29 +90,20 @@ def get_tagged_text():
                     if not is_prop:
                         tagged_text.append((tup[0], 'o'))
 
-
-
         input_list.extend(tagged_text)
+
+    print("Writing to file...")
+    with open('tagged_texts.csv', 'w', encoding='utf-8') as f:
+        writer = csv.writer(f)
+
+        for x in tqdm(input_list):
+            writer.writerow([s.replace('\n', 'NEWLINE') for s in x])
 
     print('Finished tagging')
     # pprint(input_list[:250])
 
     print(f'There are a total of {len(input_list)} words in the input array!')
     return input_list
-
-    le = LabelEncoder()
-
-    df = pd.DataFrame(input_list, columns=['word', 'boolProp'])
-    word_encoder = LabelEncoder()
-    bin_encoder = LabelEncoder()
-
-    word_num = word_encoder.fit_transform(df['word'])
-    bin_num = bin_encoder.fit_transform(df['boolProp'])
-
-    input_dim = len(word_encoder.classes_)
-    output_dim = len(word_encoder.classes_)
-
-    print(len(word_encoder.classes_), '::::', len(bin_encoder.classes_))
 
 
 ################################################################################
