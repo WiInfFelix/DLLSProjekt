@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
 import csv
+import pickle
 
 TRAIN_ARTICLES = 'datasets/train-articles'
 TRAIN_LABELS = 'datasets/train-labels-task1-span-identification'
@@ -67,8 +68,8 @@ def get_tagged_text():
 
     print('Test Output of classes:')
 
-    # print(articles_list[0].words[:10])
-    # print(span_list[0].spans[:5])
+    print(articles_list[0].words[:10])
+    print(span_list[0].spans[:5])
 
     input_list = []
 
@@ -99,6 +100,9 @@ def get_tagged_text():
         for x in tqdm(input_list):
             writer.writerow([s.replace('\n', 'NEWLINE') for s in x])
 
+    print("Pickling list...")
+    pickle.dump(input_list, open( "list.p", "wb" ))
+
     print('Finished tagging')
     # pprint(input_list[:250])
 
@@ -115,7 +119,8 @@ def get_tagged_text():
 # nltk.download('universal_tagset')
 
 def get_data(train_test_size):
-    input_list = get_tagged_text()
+    input_list = pickle.load(open("list.p", "rb"))
+    pprint(input_list[:5])
     ## Take a subset
     corpus_words = [x[0] for x in input_list]
     corpus_tags = [x[1] for x in input_list]
@@ -145,7 +150,7 @@ def prepare_data(left_context_len, right_context_len, train_test_size):
 
 # can be used instead of prepare_data to get training data that is split on the sentence level
 def prepare_data_sentences(train_test_size):
-    word_encoder, pos_encoder, brown_words_num, brown_tags_num, input_dim, output_dim = get_data(train_test_size)
+    word_encoder, pos_encoder, corpus_words_num, corpus_tags_num, input_dim, output_dim = get_data(train_test_size)
 
     x_data_sents, y_data_sents = [], []
     x_data_sent, y_data_sent = [], []
@@ -154,7 +159,7 @@ def prepare_data_sentences(train_test_size):
     dot_label_tags = pos_encoder.transform(['.'])[0]
 
     # split on sentences
-    for word, tag in zip(brown_words_num, brown_tags_num):
+    for word, tag in zip(corpus_words_num, corpus_tags_num):
 
         if word == dot_label and tag == dot_label_tags:
             if len(x_data_sent) > 0:
