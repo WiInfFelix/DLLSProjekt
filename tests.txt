@@ -1,0 +1,4 @@
+import pickle
+
+input_list = pickle.load(open("list.p", "rb"))
+print(type(input_list))

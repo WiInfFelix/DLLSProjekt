@@ -1,0 +1,50 @@
+train_test_size = 10000
+
+Initial training loss: 0.6886964
+Initial test loss: 0.68732953
+Training loss after epoch 1: 0.14686319
+Test loss after training: 0.23693205
+Training loss after epoch 2: 0.06337866
+Test loss after training: 0.20676728
+Training loss after epoch 3: 0.03130698
+Test loss after training: 0.21879943
+Training loss after epoch 4: 0.018611453
+Test loss after training: 0.24070956
+Training loss after epoch 5: 0.010890827
+Test loss after training: 0.27963653
+Training loss after epoch 6: 0.0072787153
+Test loss after training: 0.3168885
+Training loss after epoch 7: 0.005209637
+Test loss after training: 0.34920996
+Training loss after epoch 8: 0.0030437128
+Test loss after training: 0.37253183
+Training loss after epoch 9: 0.0061292197
+Test loss after training: 0.40447804
+Training loss after epoch 10: 0.004593501
+Test loss after training: 0.42900845
+
+==========================================================
+
+train_test_size = 100000
+
+Initial training loss: 0.6925078
+Initial test loss: 0.6931294
+Training loss after epoch 1: 0.35710138
+Test loss after training: 0.37883985
+Training loss after epoch 2: 0.3513861
+Test loss after training: 0.39577204
+Training loss after epoch 3: 0.32233727
+Test loss after training: 0.37382933
+Training loss after epoch 4: 0.29776776
+Test loss after training: 0.3686513
+
+
+==========================================================
+
+train_test_size = 500000
+
+Initial training loss: 0.69482577
+Initial test loss: 0.69502765
+100%|█████████████████████████████████████████████████████████████████████████████| 308865/308865 [12:23<00:00, 415.65it/s]
+Training loss after epoch 1: 0.39410225
+Test loss after training: 0.40635365

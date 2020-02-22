@@ -120,8 +120,11 @@ def get_tagged_text():
 
 def get_data(train_test_size):
     input_list = pickle.load(open("list.p", "rb"))
-    pprint(input_list[:5])
+
     ## Take a subset
+    input_list = input_list[:train_test_size]
+
+    pprint(input_list[:5])
     corpus_words = [x[0] for x in input_list]
     corpus_tags = [x[1] for x in input_list]
 
@@ -176,6 +179,7 @@ def prepare_data_sentences(train_test_size):
 # seq_len (int), input_dim (int), output_dim (int), embedding_dim (int), learning_rate (float)
 # TODO: extend this with your LSTM code!
 def build_graph(seq_len, input_dim, output_dim, embedding_dim, learning_rate):
+## use gpu
     ## input
     x = tf.placeholder(tf.int32, (None, seq_len))
     y = tf.placeholder(tf.int32, (None))
@@ -204,17 +208,21 @@ def build_graph(seq_len, input_dim, output_dim, embedding_dim, learning_rate):
 
 
 def main():
+
+    print("Number of GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+    
     # model size parameters
     left_context_len = 4
     right_context_len = 0
 
     # set this higher to get a better model
-    train_test_size = 500
+    train_test_size = 500000
     embedding_dim = 100
 
     ## Hyperparemeters: experiment with these, too
     learning_rate = 0.001
-    epochs = 10
+    epochs = 4
+    print(epochs ," EPOCHS")
 
     seq_len = left_context_len + 1 + right_context_len
     input_dim, output_dim, x_data, y_data = prepare_data(left_context_len, right_context_len, train_test_size)
@@ -239,9 +247,9 @@ def main():
             for x_sample, y_sample in tqdm(epoch_data):
                 train_dict_local = {x: [x_sample], y: [y_sample]}
                 sess.run(optimizer, train_dict_local)
-            print("Training loss after epoch " + str(i + 1) + ":" + str(sess.run(loss, train_dict)))
+            print("Training loss after epoch " + str(i + 1) + ": " + str(sess.run(loss, train_dict)))
 
-        print("Test loss after training:" + str(sess.run(loss, test_dict)))
+            print("Test loss after training: " + str(sess.run(loss, test_dict)))
         print(sess.run(pred_argmax, test_dict))
 
 
