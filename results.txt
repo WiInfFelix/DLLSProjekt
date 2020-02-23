@@ -38,13 +38,17 @@ Test loss after training: 0.37382933
 Training loss after epoch 4: 0.29776776
 Test loss after training: 0.3686513
 
-
 ==========================================================
 
 train_test_size = 500000
 
-Initial training loss: 0.69482577
-Initial test loss: 0.69502765
-100%|█████████████████████████████████████████████████████████████████████████████| 308865/308865 [12:23<00:00, 415.65it/s]
-Training loss after epoch 1: 0.39410225
-Test loss after training: 0.40635365
+Initial training loss: 0.6960493
+Initial test loss: 0.6961291
+Training loss after epoch 1: 0.39986542
+Test loss after training: 0.4046048
+Training loss after epoch 2: 0.4106468
+Test loss after training: 0.41714963
+Training loss after epoch 3: 0.39323172
+Test loss after training: 0.40689576
+Training loss after epoch 4: 0.40712968
+Test loss after training: 0.428688

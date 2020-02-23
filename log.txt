@@ -1,0 +1,78 @@
+Parameters:
+train_test_size =  1000
+learning_rate =  0.001
+epochs =  5
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.27432716, 0.15510492, 0.07088226, 0.02987566, 0.013747637]
+test_losses:  [0.4323182, 0.46236286, 0.5183736, 0.56788075, 0.61704737]
+==================================================
+
+Parameters:
+train_test_size =  5000
+learning_rate =  0.001
+epochs =  5
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.32561424, 0.1971808, 0.099297844, 0.043592382, 0.019781303]
+test_losses:  [0.43072772, 0.49183404, 0.6068796, 0.7636339, 0.88031924]
+==================================================
+
+Parameters:
+train_test_size =  10000
+learning_rate =  0.001
+epochs =  5
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.35828525, 0.25469935, 0.15241791, 0.09168289, 0.050734807]
+test_losses:  [0.4269199, 0.4685591, 0.5822765, 0.7361705, 0.8680695]
+==================================================
+
+Parameters:
+train_test_size =  50000
+learning_rate =  0.001
+epochs =  5
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.38893148, 0.35852653, 0.31600535, 0.29443282, 0.26498616]
+test_losses:  [0.41242597, 0.42554823, 0.43957105, 0.48274106, 0.5223853]
+==================================================
+
+Parameters:
+train_test_size =  100000
+learning_rate =  0.001
+epochs =  3
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.41118947, 0.374612, 0.3711849]
+test_losses:  [0.4274319, 0.40601662, 0.43486774]
+==================================================
+
+Parameters:
+Parameters:
+train_test_size =  all
+learning_rate =  0.001
+epochs =  3
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.41125184, 0.38727456, 0.3934168]
+test_losses:  [0.4159042, 0.3969324, 0.40761942]
+==================================================
+
+Parameters:
+train_test_size =  all
+learning_rate =  0.001
+epochs =  6
+left_context_len =  4
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.38985038, 0.3951034, 0.40203357, 0.39331126, 0.39423126, 0.3880394]
+test_losses:  [0.4004986, 0.40952855, 0.42120928, 0.41816354, 0.42294142, 0.42412585]
+==================================================
+
