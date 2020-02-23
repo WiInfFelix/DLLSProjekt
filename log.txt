@@ -76,3 +76,47 @@ train_losses:  [0.38985038, 0.3951034, 0.40203357, 0.39331126, 0.39423126, 0.388
 test_losses:  [0.4004986, 0.40952855, 0.42120928, 0.41816354, 0.42294142, 0.42412585]
 ==================================================
 
+Parameters:
+train_test_size =  all
+learning_rate =  0.001
+epochs =  3
+left_context_len =  2
+right_context_len =  2
+embedding_dim =  100
+train_losses:  [0.3938849, 0.39366582, 0.43192187]
+test_losses:  [0.40032825, 0.40353328, 0.44534054]
+==================================================
+
+Parameters:
+train_test_size =  all
+learning_rate =  0.001
+epochs =  3
+left_context_len =  1
+right_context_len =  1
+embedding_dim =  100
+train_losses:  [0.39601958, 0.3897805, 0.3987376]
+test_losses:  [0.3998093, 0.39541754, 0.40722516]
+==================================================
+
+Parameters:
+train_test_size =  all
+learning_rate =  0.001
+epochs =  3
+left_context_len =  3
+right_context_len =  3
+embedding_dim =  100
+train_losses:  [0.54383063, 0.3907731, 0.43271893]
+test_losses:  [0.54879695, 0.4040751, 0.46255237]
+==================================================
+
+Parameters:
+train_test_size =  all
+learning_rate =  0.001
+epochs =  3
+left_context_len =  0
+right_context_len =  0
+embedding_dim =  100
+train_losses:  [0.39234465, 0.3952809, 0.3906384]
+test_losses:  [0.39454833, 0.39745545, 0.39334533]
+==================================================
+

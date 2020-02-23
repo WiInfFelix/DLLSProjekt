@@ -220,13 +220,13 @@ def main():
         print("using subset of data")
     
     # model size parameters
-    left_context_len = 4
+    left_context_len = 0
     right_context_len = 0
     embedding_dim = 100
 
     ## Hyperparemeters: experiment with these, too
     learning_rate = 0.001
-    epochs = 6
+    epochs = 3
 
     # print info to file
     stdoutOrigin=sys.stdout 
